@@ -1,0 +1,10 @@
+Step 1 - Initialize NPM
+    npm init -y
+
+Step 2 - Install a list of related packages
+    sequelize@^5.0.0
+    sequelize-cli@^5.0.0
+    pg  --8.7.1
+
+Step 3 - Initialize Sequelize
+    npx sequelize init
