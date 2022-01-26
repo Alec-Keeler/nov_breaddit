@@ -32,7 +32,7 @@ module.exports = {
      },
      {
        username: 'gingerbread',
-       password: 'shreksucks',
+       password: 'shrekisfine',
        email: 'ginger@bread.com',
        createdAt: new Date(),
        updatedAt: new Date()

@@ -42,3 +42,9 @@ Associations
     belongsTo
     hasMany
     belongsToMany
+
+When you need to make a change to a migration:
+npx sequelzie db:seed:undo:all
+npx sequelize db:migrate:undo:all
+npx sequelize db:migrate
+npx sequelize db:seed:all
