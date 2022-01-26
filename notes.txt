@@ -20,4 +20,25 @@ Step 5 - Create Database
     Create the user (in psql)
     Create the database
         npx sequelize db:create
-    
+    Create tables
+        npx sequelize model:generate --name ModelName --attributes col1:datatype,col2:datatype
+        npx sequelize db:migrate
+        npx sequelize db:migrate:undo:all
+    Insert data into tables
+        npx sequelize seed:generate --name fileName
+        npx sequelzie db:seed:all
+        npx sequelize db:seed:undo:all
+
+Models Vs Migrations
+    Model
+        Capitalized and Singular
+        Interacting with an instance of data
+    Migration
+        Capitalized and Plural
+        In charge of creating the table
+
+Associations
+    hasOne - 1:1
+    belongsTo
+    hasMany
+    belongsToMany
