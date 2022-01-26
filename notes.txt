@@ -8,3 +8,16 @@ Step 2 - Install a list of related packages
 
 Step 3 - Initialize Sequelize
     npx sequelize init
+
+Step 4 - Configure the Config
+    Change the username
+    Change the password
+    Change the database name
+    Change dialect to postgres
+    Add "seederStorage": "sequelize"
+
+Step 5 - Create Database
+    Create the user (in psql)
+    Create the database
+        npx sequelize db:create
+    
