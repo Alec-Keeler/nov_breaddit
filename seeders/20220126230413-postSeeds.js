@@ -22,6 +22,34 @@ module.exports = {
        subId: 1,
        createdAt: new Date(),
        updatedAt: new Date()
+     },
+     {
+       content: 'A',
+       userId: 2,
+       subId: 1,
+       createdAt: new Date(),
+       updatedAt: new Date()
+     },
+     {
+       content: 'A',
+       userId: 1,
+       subId: 1,
+       createdAt: new Date(),
+       updatedAt: new Date()
+     },
+     {
+       content: 'B',
+       userId: 2,
+       subId: 1,
+       createdAt: new Date(),
+       updatedAt: new Date()
+     },
+     {
+       content: 'B',
+       userId: 1,
+       subId: 1,
+       createdAt: new Date(),
+       updatedAt: new Date()
      }
    ], {});
   },

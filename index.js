@@ -126,3 +126,15 @@ async function findUserByEmail(email) {
 }
 
 // findUserByEmail('billy@bread.com')
+
+async function testOrder() { 
+    const posts = await Post.findAll({
+        order: [['content', 'ASC'], ['userId', 'ASC']],
+        raw: true
+    })
+
+    console.log(posts)
+    sequelize.close()
+}
+
+testOrder()
