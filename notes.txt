@@ -48,3 +48,14 @@ npx sequelize db:seed:undo:all
 npx sequelize db:migrate:undo:all
 npx sequelize db:migrate
 npx sequelize db:seed:all
+
+
+Query methods
+    create
+    build
+        save
+    destroy
+    save (updating)
+    findByPk
+    findOne
+    findAll
