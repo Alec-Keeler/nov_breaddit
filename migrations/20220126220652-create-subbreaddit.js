@@ -1,26 +1,21 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Posts', {
+    return queryInterface.createTable('Subbreaddits', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      content: {
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING(100),
+        unique: true
+      },
+      description: {
         allowNull: false,
         type: Sequelize.TEXT
-      },
-      userId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'Users' }
-      }, 
-      subId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'Subbreaddits' }
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Posts');
+    return queryInterface.dropTable('Subbreaddits');
   }
 };

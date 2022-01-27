@@ -8,18 +8,17 @@ module.exports = {
 
       Example:
       */
-   return queryInterface.bulkInsert('Posts', [
+   return queryInterface.bulkInsert('Subbreaddits', [
      {
-       content: 'I dont think shrek is all its built up to be',
-       userId: 4,
-       subId: 1,
+       name: "how2bake",
+       description: "For those trying to learn how to bake",
        createdAt: new Date(),
        updatedAt: new Date()
+
      },
      {
-       content: 'The Good Place is the best show',
-       userId: 3,
-       subId: 1,
+       name: "Layered Bread",
+       description: "For discussion of all breads with some manner of layers, like pies.  Not for discussing onions.",
        createdAt: new Date(),
        updatedAt: new Date()
      }
@@ -32,7 +31,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
-   return queryInterface.bulkDelete('Posts', null, {});
+      return queryInterface.bulkDelete('People', null, {});
+    */
   }
 };
