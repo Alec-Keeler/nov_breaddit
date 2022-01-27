@@ -2,11 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define('Post', {
     content: DataTypes.TEXT,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    subId: DataTypes.INTEGER
   }, {});
   Post.associate = function(models) {
     // associations can be defined here
     Post.belongsTo(models.User, { foreignKey: 'userId' })
+    Post.belongsTo(models.Subbreaddit, { foreignKey: 'subId' })
   };
   return Post;
 };
