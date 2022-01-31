@@ -1,0 +1,17 @@
+* - 0 or more
+? - 0 or 1
++ - 1 or more
+\ - escape following character
+. - any character
+^ - start of input
+$ - end of input
+[] - group of optional characters
+() - group of nonoptional characters
+[^X] - not characters in group
+[a-zA-Z0-9] - range of charactes
+{1, 10} - specific number of characters
+
+\s - whitespace
+\d - digit
+\w - word characters (includes _, also digits)
+
