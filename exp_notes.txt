@@ -8,3 +8,17 @@ Create the app.js primary express file
 Task 1c
 Script:
 dev: nodemon app.js
+
+Route handler methods:
+get
+post
+put
+patch
+delete
+all
+
+Response methods:
+send
+render
+json
+redirect

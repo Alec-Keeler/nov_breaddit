@@ -3,7 +3,10 @@ const express = require('express');
 
 const app = express();
 
-
+// Task 2
+app.get('/', (req, res) => {
+    res.send('Welcome to Breaddit')
+})
 
 
 
