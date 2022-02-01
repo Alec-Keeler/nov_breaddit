@@ -1,4 +1,9 @@
 head
     title Breaddit
 body
-    p= num
+    ul
+        each user in users
+            p= user.username
+            p= user.password
+            p= user.email
+            br

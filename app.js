@@ -8,11 +8,16 @@ const app = express();
 app.set('view engine', 'pug')
 
 // Task 2
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     // res.send('Welcome to Breaddit')
 
     // Task 3b
-    res.render('users', {num: 1000000})
+    // res.render('users', {num: 1000000})
+
+    // Task 5
+    const users = await User.findAll();
+
+    res.render('users', {users})
 })
 
 // Task 4
