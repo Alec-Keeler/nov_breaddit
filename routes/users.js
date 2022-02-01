@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 })
 
 // Task 4
-router.get('/:userId', async (req, res) => {
+router.get('/:userId(\\d+)', async (req, res) => {
     // console.log(req.params.userId)
     const userId = req.params.userId
     const user = await User.findByPk(userId)
