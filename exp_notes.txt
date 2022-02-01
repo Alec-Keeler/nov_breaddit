@@ -1,0 +1,10 @@
+Packages to install
+    express
+    pug
+    nodemon
+
+Create the app.js primary express file
+
+Task 1c
+Script:
+dev: nodemon app.js
