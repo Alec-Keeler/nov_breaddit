@@ -1,9 +1,22 @@
+
+include utils.pug
 head
     title Breaddit
 body
     h1 This is the profile page
-    div(class = 'user-container' id = 'container')
-        p.testClass= user.username
-        p= user.password
-        p= user.email
-    div.extraDiv#someextraId
+    table
+        thead
+            tr
+                th Username 
+                th Password
+                th Email
+        tbody
+            +userData(user)
+//- Task 9b ^^
+
+
+    //- div(class = 'user-container' id = 'container')
+    //-     p.testClass= user.username
+    //-     p= user.password
+    //-     p= user.email
+    //- div.extraDiv#someextraId

@@ -1,11 +1,16 @@
+
+include utils.pug
 head
     title Breaddit
     link(rel="stylesheet", href="/css/index.css")
 body
-    div
-        each user in users
-            div.user-container
-                p= user.username
-                p= user.password
-                p= user.email
-                br
+    table
+        thead
+            tr
+                th Username 
+                th Password
+                th Email
+        tbody
+            each user in users
+                +userData(user)
+//- Task 9a ^^
