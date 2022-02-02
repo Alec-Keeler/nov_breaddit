@@ -1,17 +1,22 @@
 extends layout.pug
 
 block banana
+    div.error-container
+        if errors.length
+            ul
+                each err in errors
+                    li= err
     form(action="/users/signup" method="post") 
         input(type="hidden" name='_csrf' value=csrfToken)
         label(for="username") Username
-        input(type="text" name="username" required)
+        input(type="text" name="username" value=user.username required)
         label(for="email") Email
-        input(type="text" name="email" required)
+        input(type="text" name="email" value=user.email required)
         label(for="password") Password
         input(type="text" name="password" required)
         label(for="likesBread") Do You Like Bread?
         select(name="likesBread") 
-            option(value='true') True
-            option(value='false') False
+            option(value='true' selected=(user.likesBread === 'true')) True
+            option(value='false' selected=(user.likesBread === 'false')) False
         button Submit
 //- Task 11b Task 13b

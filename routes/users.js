@@ -56,7 +56,7 @@ router.get('/:userId(\\d+)', async (req, res) => {
 router.get('/signup', csrfProtection, (req, res) => {
     // res.send('hello from signup page')
 
-    res.render('signup', {csrfToken: req.csrfToken()})
+    res.render('signup', {csrfToken: req.csrfToken(), errors: [], user: {}})
 })
 
 // Task 11c Task 13b
@@ -66,7 +66,8 @@ router.post('/signup', csrfProtection, emailChecker, async (req, res) => {
 
     const {username, password, email, likesBread} = req.body
     if (req.errors) {
-        res.render('signup', { csrfToken: req.csrfToken(), errors: req.errors })
+        // Task 13d
+        res.render('signup', { csrfToken: req.csrfToken(), errors: req.errors, user: req.body })
     } else {
         const user = await User.create({
             username,
