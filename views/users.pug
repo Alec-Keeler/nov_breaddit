@@ -1,9 +1,7 @@
-
+extends layout.pug
 include utils.pug
-head
-    title Breaddit
-    link(rel="stylesheet", href="/css/index.css")
-body
+
+block banana
     table
         thead
             tr
@@ -13,4 +11,6 @@ body
         tbody
             each user in users
                 +userData(user)
+
+
 //- Task 9a ^^
