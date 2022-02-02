@@ -30,7 +30,14 @@ router.get('/:userId(\\d+)', async (req, res) => {
 
 // Task 11a
 router.get('/signup', (req, res) => {
-    res.send('hello from signup page')
+    // res.send('hello from signup page')
+
+    res.render('signup')
+})
+
+// Task 11c
+router.post('/signup', (req, res) => {
+    console.log('hello from post route')
 })
 
 //Task 6b
