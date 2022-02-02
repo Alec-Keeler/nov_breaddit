@@ -1,5 +1,7 @@
 // Task 1a
 const express = require('express');
+// Task 13b
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -7,6 +9,11 @@ const app = express();
 app.set('view engine', 'pug')
 // Task 8
 app.use(express.static('./public'))
+
+// Task 13a
+app.use(express.urlencoded({extended: false}))
+// Task 13b
+app.use(cookieParser())
 
 // Task 12a
 app.use((req, res, next) => {

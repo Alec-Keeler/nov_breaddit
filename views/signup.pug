@@ -2,6 +2,7 @@ extends layout.pug
 
 block banana
     form(action="/users/signup" method="post") 
+        input(type="hidden" name='_csrf' value=csrfToken)
         label(for="username") Username
         input(type="text" name="username" required)
         label(for="email") Email
@@ -10,7 +11,7 @@ block banana
         input(type="text" name="password" required)
         label(for="likesBread") Do You Like Bread?
         select(name="likesBread") 
-            option(value=true) True
-            option(value=false) False
+            option(value='true') True
+            option(value='false') False
         button Submit
-//- Task 11b
+//- Task 11b Task 13b
