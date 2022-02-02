@@ -1,9 +1,11 @@
 head
     title Breaddit
+    link(rel="stylesheet", href="/css/index.css")
 body
-    ul
+    div
         each user in users
-            p= user.username
-            p= user.password
-            p= user.email
-            br
+            div.user-container
+                p= user.username
+                p= user.password
+                p= user.email
+                br

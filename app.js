@@ -1,11 +1,12 @@
 // Task 1a
 const express = require('express');
-const { User } = require('./models');
 
 const app = express();
 
 // Task 3a
 app.set('view engine', 'pug')
+// Task 8
+app.use(express.static('./public'))
 
 // Task 6b
 const usersRouter = require('./routes/users')
