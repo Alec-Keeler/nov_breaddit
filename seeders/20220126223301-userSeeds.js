@@ -13,6 +13,7 @@ module.exports = {
        username: 'aleclikesbread',
        password: 'breadpuns',
        email: 'alec@bread.com',
+       likesBread: true,
        createdAt: new Date(),
        updatedAt: new Date()
      },
@@ -20,6 +21,7 @@ module.exports = {
        username: 'billy',
        password: 'butter',
        email: 'billy@bread.com',
+       likesBread: true,
        createdAt: new Date(),
        updatedAt: new Date()
      },
@@ -27,6 +29,7 @@ module.exports = {
        username: 'douhgboy',
        password: 'pillsbury',
        email: 'pillslad@bread.com',
+       likesBread: true,
        createdAt: new Date(),
        updatedAt: new Date()
      },
@@ -34,6 +37,7 @@ module.exports = {
        username: 'gingerbread',
        password: 'shrekisfine',
        email: 'ginger@bread.com',
+       likesBread: true,
        createdAt: new Date(),
        updatedAt: new Date()
      },

@@ -28,5 +28,10 @@ router.get('/:userId(\\d+)', async (req, res) => {
     res.render('profile', { user })
 })
 
+// Task 11a
+router.get('/signup', (req, res) => {
+    res.send('hello from signup page')
+})
+
 //Task 6b
 module.exports = router;
