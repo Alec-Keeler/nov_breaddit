@@ -5,6 +5,15 @@ const router = express.Router();
 const { User } = require('../db/models');
 const csrf = require('csurf');
 
+// Task 17b
+const asyncHandler = (handler) => {
+    return (req, res, next) => {
+        return handler(req, res, next).catch(next);
+    };
+};
+
+// const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
+
 // Task 13b
 const csrfProtection = csrf({cookie: true})
 
@@ -60,7 +69,7 @@ router.get('/signup', csrfProtection, (req, res) => {
 })
 
 // Task 11c Task 13b
-router.post('/signup', csrfProtection, emailChecker, async (req, res) => {
+router.post('/signup', csrfProtection, emailChecker, asyncHandler(async (req, res, next) => {
     console.log('body:', req.body)
     console.log(req.errors)
 
@@ -69,15 +78,20 @@ router.post('/signup', csrfProtection, emailChecker, async (req, res) => {
         // Task 13d
         res.render('signup', { csrfToken: req.csrfToken(), errors: req.errors, user: req.body })
     } else {
-        const user = await User.create({
-            username,
-            password,
-            email,
-            likesBread
-        })
-        res.redirect('/users')
+        // Task 17a
+        // try {
+            const user = await User.create({
+                username,
+                password,
+                email,
+                likesBread
+            })
+            res.redirect('/users')
+        // } catch (err) {
+        //     next(err)
+        // }
     }
-})
+}))
 
 //Task 6b
 module.exports = router;

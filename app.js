@@ -39,7 +39,7 @@ app.get(/^\/(home)[st]?$/, (req, res) => {
 
 // Task 16a
 app.use((req, res, next) => {
-    // res.send('This page could not be found D:')
+    console.log('This page could not be found D:')
     const err = new Error('page not found')
     next(err)
 })
@@ -51,7 +51,9 @@ app.use((req, res, next) => {
 
 // Task 16b
 app.use((err, req, res, next) => {
-    console.log('hello from error handler')
+    // console.log('hello from error handler')
+    console.log(err.message)
+    res.send('you have arrived at the error handler')
 })
 
 // top level resource path
