@@ -44,5 +44,6 @@ app.all('*', (req, res) => {
 // /users/1/posts/4/comments
 
 // Task 1b
-const port = 8080;
-app.listen(port, () => console.log(`Listening on port ${port}...`))
+// const port = 8080;
+// app.listen(port, () => console.log(`Listening on port ${port}...`))
+module.exports = app;
