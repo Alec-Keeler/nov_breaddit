@@ -33,8 +33,25 @@ app.get(/^\/(home)[st]?$/, (req, res) => {
     res.send('Regex handler')
 })
 
-app.all('*', (req, res) => {
-    res.send('We could not find the page you were looking for D:')
+// app.all('*', (req, res) => {
+//     res.send('We could not find the page you were looking for D:')
+// })
+
+// Task 16a
+app.use((req, res, next) => {
+    // res.send('This page could not be found D:')
+    const err = new Error('page not found')
+    next(err)
+})
+
+app.use((req, res, next) => {
+    console.log('BANANA')
+    next()
+})
+
+// Task 16b
+app.use((err, req, res, next) => {
+    console.log('hello from error handler')
 })
 
 // top level resource path
