@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../db/models');
 const csrf = require('csurf');
+const bcrypt = require('bcryptjs');
 
 // Task 17b
 const asyncHandler = (handler) => {
@@ -80,9 +81,10 @@ router.post('/signup', csrfProtection, emailChecker, asyncHandler(async (req, re
     } else {
         // Task 17a
         // try {
+            const hashedPassword = await bcrypt.hash(password, 10)
             const user = await User.create({
                 username,
-                password,
+                hashedPassword,
                 email,
                 likesBread
             })
@@ -90,6 +92,32 @@ router.post('/signup', csrfProtection, emailChecker, asyncHandler(async (req, re
         // } catch (err) {
         //     next(err)
         // }
+    }
+}))
+
+// Task 20a
+router.get('/login', csrfProtection, (req, res) => {
+    res.render('login', {csrfToken: req.csrfToken()})
+    // res.send('hello from login')
+})
+
+// Task 20c
+router.post('/login', csrfProtection, asyncHandler(async(req, res) => {
+    // console.log(req.body)
+    const { email, password } = req.body
+    const user = await User.findOne({
+        where: {
+            email
+        }
+    })
+
+    const isPass = await bcrypt.compare(password, user.hashedPassword)
+    if (isPass) {
+        res.redirect('/users')
+    } else {
+        // res.render('login')
+        // re render the form with csrf and email and an error
+        res.send('failed to login')
     }
 }))
 

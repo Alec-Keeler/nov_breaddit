@@ -1,0 +1,11 @@
+extends layout.pug 
+
+block banana
+    form(action="/users/login" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken) 
+        label(for="email") Email
+        input(type="text" name="email")
+        label(for="password") Password
+        input(type="text" name="password") 
+        button Log In
+//- Task 20b
