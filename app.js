@@ -49,11 +49,20 @@ const usersRouter = require('./routes/users')
 app.use('/users', usersRouter)
 // app.use('/profile', usersRouter)
 
+// Task 22
+const authCheck = (req, res, next) => {
+    if (req.session.user) {
+        next()
+    } else {
+        res.redirect('/users/login')
+    }
+}
+
 // Task 7
-app.get(/^\/(home)[st]?$/, (req, res) => {
+app.get(/^\/(home)[st]?$/, authCheck, (req, res) => {
     // console.log('banana?', req.banana)
     // console.log('potato?', req.potato)
-    console.log(req.session)
+    // console.log(req.session)
     res.send('Regex handler')
 })
 
