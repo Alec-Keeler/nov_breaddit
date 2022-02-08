@@ -13,11 +13,34 @@ app.use(express.static('./public'))
 // Task 13a
 app.use(express.urlencoded({extended: false}))
 // Task 13b
-app.use(cookieParser())
+app.use(cookieParser('password'))
 
 // Task 12a
 app.use((req, res, next) => {
     req.banana = true
+    next()
+})
+
+app.use((req, res, next) => {
+    console.log('before', req.session)
+    next()
+})
+
+// Task 21a
+const session = require('express-session');
+app.use(session({
+    secret: 'password',
+    resave: false,
+    saveUninitialized: false
+}))
+
+// app.use((req, res, next) => {
+//     req.session.banana = true
+//     next()
+// })
+
+app.use((req, res, next) => {
+    console.log('after', req.session)
     next()
 })
 
@@ -28,8 +51,9 @@ app.use('/users', usersRouter)
 
 // Task 7
 app.get(/^\/(home)[st]?$/, (req, res) => {
-    console.log('banana?', req.banana)
-    console.log('potato?', req.potato)
+    // console.log('banana?', req.banana)
+    // console.log('potato?', req.potato)
+    console.log(req.session)
     res.send('Regex handler')
 })
 

@@ -46,7 +46,8 @@ router.get('/', async (req, res) => {
 
     // Task 5
     const users = await User.findAll();
-    console.log('banana?', req.banana)
+    // console.log('banana?', req.banana)
+    console.log(req.session)
 
     res.render('users', { users })
 })
@@ -88,6 +89,8 @@ router.post('/signup', csrfProtection, emailChecker, asyncHandler(async (req, re
                 email,
                 likesBread
             })
+
+            req.session.user = {userId: user.id, username: user.username}
             res.redirect('/users')
         // } catch (err) {
         //     next(err)
@@ -113,6 +116,8 @@ router.post('/login', csrfProtection, asyncHandler(async(req, res) => {
 
     const isPass = await bcrypt.compare(password, user.hashedPassword)
     if (isPass) {
+        // Task 21b
+        req.session.user = {userId: user.id, username: user.username}
         res.redirect('/users')
     } else {
         // res.render('login')
@@ -120,6 +125,15 @@ router.post('/login', csrfProtection, asyncHandler(async(req, res) => {
         res.send('failed to login')
     }
 }))
+
+// Task 21c 21d
+router.get('/logout', (req, res) =>{
+    delete req.session.user
+    // res.redirect('/users')
+    req.session.save(() => {
+        res.redirect('/users')
+    })
+})
 
 //Task 6b
 module.exports = router;
