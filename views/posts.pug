@@ -1,10 +1,6 @@
 extends layout.pug 
-
 block banana 
     each post in posts 
         div(id=`post-container-${post.id}`).post-box
             p= post.content
-            if post.userId === userId
-                form(action=`/posts/${post.id}` method="post") 
-                    input(type="hidden" name="_csrf" value=csrfToken)
-                    button(type="submit" id=post.id).delete-btn Delete
+            
