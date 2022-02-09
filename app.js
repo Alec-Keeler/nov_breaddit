@@ -12,6 +12,8 @@ app.use(express.static('./public'))
 
 // Task 13a
 app.use(express.urlencoded({extended: false}))
+// Task 25
+app.use(express.json());
 // Task 13b
 app.use(cookieParser('password'))
 

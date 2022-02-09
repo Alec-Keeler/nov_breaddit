@@ -53,4 +53,15 @@ router.delete('/:id', async(req, res) => {
     res.json({message: 'Success'})
 })
 
+// Task 25
+router.put('/:id', async(req, res) => {
+    console.log('hello from post edit route')
+    const { content } = req.body;
+
+    const post = await Post.findByPk(req.params.id)
+    post.content = content
+    await post.save()
+    res.json({data: post})
+})
+
 module.exports = router;
