@@ -12,13 +12,14 @@ const authCheck = (req, res, next) => {
     }
 }
 
-router.get('/' , async(req, res) => {
+router.get('/' , csrfProtection, async(req, res) => {
     const posts = await Post.findAll()
     let userId = 0;
     if (req.session.user) {
         userId = req.session.user.userId
     }
-    res.render('posts', {posts, userId})
+    // Task 23a
+    res.render('posts', {posts, userId, csrfToken: req.csrfToken()})
 })
 
 router.get('/new', authCheck, csrfProtection, (req, res) => {
@@ -33,6 +34,23 @@ router.post('/', csrfProtection, async(req, res) => {
         subId
     })
     res.redirect('/posts')
+})
+
+// Task 23b
+router.post('/:id/delete', csrfProtection, async(req, res) => {
+    const postId = req.params.id
+    const post = await Post.findByPk(postId)
+    await post.destroy();
+    res.redirect('/posts')
+})
+
+// Task 24d
+router.delete('/:id', async(req, res) => {
+    const postId = req.params.id
+    const post = await Post.findByPk(postId)
+    await post.destroy();
+
+    res.json({message: 'Success'})
 })
 
 module.exports = router;

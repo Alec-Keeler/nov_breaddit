@@ -1,6 +1,12 @@
 extends layout.pug 
 block banana 
+    script(src="/javascripts/index.js" type="module") 
     each post in posts 
         div(id=`post-container-${post.id}`).post-box
             p= post.content
-            
+            if post.userId === userId
+                form(action=`/posts/${post.id}/delete` method="post") 
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    button(id=post.id).delete-btn Delete
+//- Task 23a
+//- Task 24b
