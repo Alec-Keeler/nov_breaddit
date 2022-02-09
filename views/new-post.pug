@@ -1,0 +1,10 @@
+extends layout.pug 
+
+block banana 
+    form(action="/posts" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken) 
+        label(for="content") Content:
+        input(type="text" name="content")
+        label(for="subId") Subbreaddit Id: 
+        input(type="number" name="subId")
+        button Post

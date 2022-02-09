@@ -1,3 +1,4 @@
+const req = require('express/lib/request');
 const { User, Post, Subbreaddit, sequelize, Sequelize: { Op } } = require('./models');
 
 async function buildUser() {
@@ -177,3 +178,19 @@ async function profilePlus(userId) {
 }
 
 profilePlus(3)
+
+
+const jeffsValidator = check('date').custom( async(value) => {
+    const thing = await Thing.findWhatever({
+        where: {
+            date: value,
+            time: req.body.time // ??Not sure if you'll have access to request object??
+        }
+    }).then(user => {
+        if (!user) {
+            return Promise.reject('Thing already exists')
+        } else {
+            return true
+        }
+    })
+})

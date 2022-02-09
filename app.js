@@ -46,7 +46,9 @@ app.use((req, res, next) => {
 
 // Task 6b
 const usersRouter = require('./routes/users')
+const postsRouter = require('./routes/posts')
 app.use('/users', usersRouter)
+app.use('/posts', postsRouter)
 // app.use('/profile', usersRouter)
 
 // Task 22

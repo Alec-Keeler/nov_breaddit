@@ -11,7 +11,7 @@ module.exports = {
    return queryInterface.bulkInsert('Users', [
      {
        username: 'aleclikesbread',
-       password: 'breadpuns',
+       hashedPassword: 'breadpuns',
        email: 'alec@bread.com',
        likesBread: true,
        createdAt: new Date(),
@@ -19,7 +19,7 @@ module.exports = {
      },
      {
        username: 'billy',
-       password: 'butter',
+       hashedPassword: 'butter',
        email: 'billy@bread.com',
        likesBread: true,
        createdAt: new Date(),
@@ -27,7 +27,7 @@ module.exports = {
      },
      {
        username: 'douhgboy',
-       password: 'pillsbury',
+       hashedPassword: 'pillsbury',
        email: 'pillslad@bread.com',
        likesBread: true,
        createdAt: new Date(),
@@ -35,7 +35,7 @@ module.exports = {
      },
      {
        username: 'gingerbread',
-       password: 'shrekisfine',
+       hashedPassword: 'shrekisfine',
        email: 'ginger@bread.com',
        likesBread: true,
        createdAt: new Date(),
